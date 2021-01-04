@@ -129,6 +129,9 @@
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
   </data>
+  <data name="Continue Shopping" xml:space="preserve">
+    <value>Continue Shopping</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Delivery</value>
   </data>
@@ -140,6 +143,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Itemes in your cart" xml:space="preserve">
+    <value>Itemes in your cart</value>
   </data>
   <data name="items in stock" xml:space="preserve">
     <value>items in stock</value>
@@ -158,6 +164,9 @@
   </data>
   <data name="New | Available" xml:space="preserve">
     <value>New | Available</value>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Order</value>
   </data>
   <data name="Page" xml:space="preserve">
     <value>Page</value>

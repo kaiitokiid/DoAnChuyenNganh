@@ -33,15 +33,23 @@ namespace eShopSolution.WebApp.Controllers
             });
         }
 
-        public async Task<IActionResult> Category(int id, string culture, int page = 1)
+        public async Task<IActionResult> Category(int id, string culture, string keyword, int? categoryId, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 12)
         {
             var products = await _productApiClient.GetProductPagings(new GetManageProductPagingRequest()
             {
                 CategoryId = id,
-                PageIndex = page,
+                PageIndex = pageIndex,
                 LanguageId = culture,
-                PageSize = 10
+                PageSize = pageSize,
+                MinPrice = minPrice,
+                MaxPrice = maxPrice,
+                KeyWord = keyword,
             });
+
+            ViewBag.Keyword = keyword;
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+
             return View(new ProductCategoryViewModel()
             {
                 Category = await _categoryApiClient.GetById(culture, id),

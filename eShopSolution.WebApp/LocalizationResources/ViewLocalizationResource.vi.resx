@@ -132,6 +132,9 @@
     <value>Liên hệ</value>
     <comment>_layouts</comment>
   </data>
+  <data name="Continue Shopping" xml:space="preserve">
+    <value>Tiếp tục mua sắm</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Giao hàng</value>
     <comment>_layouts</comment>
@@ -146,6 +149,9 @@
   </data>
   <data name="Home" xml:space="preserve">
     <value>Trang chủ</value>
+  </data>
+  <data name="Itemes in your cart" xml:space="preserve">
+    <value>Sản phẩm trong giỏ hàng</value>
   </data>
   <data name="items in stock" xml:space="preserve">
     <value>sản phẩm trong kho</value>
@@ -167,6 +173,9 @@
   <data name="New | Available" xml:space="preserve">
     <value>Mới | Có sẵn</value>
     <comment>Common</comment>
+  </data>
+  <data name="Order" xml:space="preserve">
+    <value>Đặt hàng</value>
   </data>
   <data name="Page" xml:space="preserve">
     <value>Trang</value>

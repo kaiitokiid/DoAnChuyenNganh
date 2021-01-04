@@ -157,7 +157,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
                         from pi in ppi.DefaultIfEmpty()
 
-                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true
+                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true && c.ParentId == null
                         select new { p, pt, pic, pi };
             // Step 2: Filter
             if (!string.IsNullOrEmpty(request.KeyWord))
@@ -167,6 +167,21 @@ namespace eShopSolution.Application.Catalog.Products
             if (request.CategoryId != null && request.CategoryId != 0)
             {
                 query = query.Where(p => p.pic.CategoryId == request.CategoryId);
+            }
+
+            if(request.MinPrice != null && request.MinPrice != 0 && request.MaxPrice != null && request.MaxPrice != 0)
+            {
+                query = query.Where(p => p.p.Price >= request.MinPrice && p.p.Price <= request.MaxPrice);
+            }
+
+            if(request.MinPrice != null && request.MinPrice != 0)
+            {
+                query = query.Where(p => p.p.Price >= request.MinPrice);
+            }
+
+            if(request.MaxPrice != null && request.MaxPrice != 0)
+            {
+                query = query.Where(p => p.p.Price <= request.MaxPrice);
             }
             // Step 3: Paging
             int totalRow = await query.CountAsync();
@@ -449,7 +464,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join c in _context.Categories on pic.CategoryId equals c.Id into picc
                         from c in picc.DefaultIfEmpty()
 
-                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true)
+                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == null
                         && p.IsFeatured == true
                         select new { p, pt, pic, pi };
             
@@ -494,7 +509,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join c in _context.Categories on pic.CategoryId equals c.Id into picc
                         from c in picc.DefaultIfEmpty()
 
-                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true)
+                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == null
                         
                         select new { p, pt, pic, pi };
 

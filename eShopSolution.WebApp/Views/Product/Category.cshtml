@@ -2,8 +2,10 @@
 @inject LazZiya.ExpressLocalization.ISharedCultureLocalizer _loc;
 @inject Microsoft.Extensions.Configuration.IConfiguration _conf;
 @{
-    ViewData["Title"] = Model.Category.Name + (Model.Products.PageIndex == 1 ? "" : " - " + _loc["Page"] + " " + Model.Products.PageIndex);
-    ViewData["Description"] = Model.Category.Name + (Model.Products.PageIndex == 1 ? "" : " - " + _loc["Page"] + " " + Model.Products.PageIndex);
+    ViewData["Title"] = Model.Category.Name;
+    ViewData["Description"] = Model.Category.Name;
+    @*ViewData["Title"] = Model.Category.Name + (Model.Products.PageIndex == 1 ? "" : " - " + _loc["Page"] + " " + Model.Products.PageIndex);
+    ViewData["Description"] = Model.Category.Name + (Model.Products.PageIndex == 1 ? "" : " - " + _loc["Page"] + " " + Model.Products.PageIndex);*@
 
     Layout = "~/Views/Shared/_Layout.cshtml";
     var culture = CultureInfo.CurrentCulture;
@@ -13,23 +15,31 @@
     <li><a href="/@culture/Home">Home</a> <span class="divider">/</span></li>
     <li class="active"> @Model.Category.Name</li>
 </ul>
-<h3> @Model.Category.Name <small class="pull-right"> 40 <localize>products are available</localize> </small></h3>
+<h3> @Model.Category.Name <small class="pull-right"> @Model.Products.Items.Count <localize>products are available</localize> </small></h3>
 <hr class="soft" />
-<p>
-    Mô tả của ứng dụng
-</p>
+<div class="span16">
+    <form asp-action="Category" method="get">
+        <div class="row">
+            
+            <div class="span4">
+                <input type="text" value="@ViewBag.Keyword" name="keyword" placeholder="Tên sản phẩm" class="form-control" />
+            </div>
+            <div class="span4"></div>
+            <div class="span4">
+                <input type="number" value="@ViewBag.MinPrice" name="minPrice" placeholder="Giá thấp nhất" class="form-control" />
+            </div>
+            <div class="span4">
+                <input type="number" value="@ViewBag.MaxPrice" name="maxPrice" placeholder="Giá cao nhất" class="form-control" />
+            </div>
+            <div class="span4">
+                <button type="submit" class="btn btn-primary">Tìm</button>
+                <button type="button" onclick="window.location.href = '/@culture.Name/@_loc["categoryUrl"]/@Model.Category.Id'" class="btn btn-dark">Reset</button>
+            </div>
+        </div>
+    </form>
+</div>
 <hr class="soft" />
-<form class="form-horizontal span6">
-    <div class="control-group">
-        <label class="control-label alignL"><localize>Sort By</localize> </label>
-        <select>
-            <option>Product name A - Z</option>
-            <option>Product name Z - A</option>
-            <option>Product Stoke</option>
-            <option>Price Lowest first</option>
-        </select>
-    </div>
-</form>
+
 
 <div id="myTab" class="pull-right">
     <a href="#listView" data-toggle="tab"><span class="btn btn-large"><i class="icon-list"></i></span></a>
@@ -52,7 +62,7 @@
                     <p>
                         @item.Description
                     </p>
-                    <a class="btn btn-small pull-right" href="product_details.html"><localize>View Details</localize></a>
+                    <a class="btn btn-small pull-right" href="/@culture.Name/@_loc["products"]/@item.Id"><localize>View Details</localize></a>
                     <br class="clr" />
                 </div>
                 <div class="span3 alignR">

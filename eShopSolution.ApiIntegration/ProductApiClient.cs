@@ -112,7 +112,9 @@ namespace eShopSolution.ApiIntegration
                 $"&pageSize={request.PageSize}" +
                 $"&keyword={request.KeyWord}" +
                 $"&languageId={request.LanguageId}" +
-                $"&categoryId={request.CategoryId}");
+                $"&categoryId={request.CategoryId}"+
+                $"&minPrice={request.MinPrice}"+
+                $"&maxPrice={request.MaxPrice}");
 
             return data;
         }

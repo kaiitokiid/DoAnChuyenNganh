@@ -35,7 +35,7 @@
     List<ProductViewModel> featurePart = new List<ProductViewModel>();
 }
 <div class="well well-small">
-    <h4><localize>Featured Products</localize> <small class="pull-right">@Model.FeaturedProducts.Count featured products</small></h4>
+    <h4><localize>Featured Products</localize> <small class="pull-right">@Model.FeaturedProducts.Count <localize>Featured Products</localize></small></h4>
     <div class="row-fluid">
         <div id="featured" class="carousel slide">
             <div class="carousel-inner">
@@ -44,11 +44,23 @@
                 {
                     featurePart.Add(Model.FeaturedProducts[index]);
 
-                    if (featurePart.Count == 4 || Model.FeaturedProducts.Count < 4)
+                    if (featurePart.Count == 4)
                     {
                         featuredProducts.Add(featurePart);
                         featurePart = new List<ProductViewModel>();
                     }
+                    else if ( Model.FeaturedProducts.Count < 4)
+                    {
+                        featuredProducts.Add(featurePart);
+                    }
+                    else if (featuredProducts.Count != 0)
+                    {
+                        if(Model.FeaturedProducts.Count % featuredProducts.Count < 4)
+                        {
+                            featuredProducts.Add(featurePart);
+                        }
+                    }
+
                 }
                 @for (int index = 0; index < featuredProducts.Count; index++)
                 {
@@ -63,7 +75,7 @@
                                         <a href="@url"><img src="@(_conf["BaseAddress"] +  item.ThumbnailImage)" alt="@item.Name"></a>
                                         <div class="caption">
                                             <h5>@item.Name</h5>
-                                            <h4><a class="btn" href="" localize-content>VIEW</a> <span class="pull-right">@item.Price.ToString()</span></h4>
+                                            <h4><a class="btn" href="@url" localize-content>VIEW</a> <span class="pull-right">@item.Price.ToString()</span></h4>
                                         </div>
                                     </div>
                                 </li>
@@ -96,7 +108,7 @@
                     </p>
 
                     <h4 style="text-align:center">
-                        <a class="btn" href="#">
+                        <a class="btn" href="@url">
                             <i class="icon-zoom-in"></i>
                         </a>
                         <a class="btn btn-add-cart" data-id="@item.Id" href="#">

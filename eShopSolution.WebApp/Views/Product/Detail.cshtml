@@ -9,7 +9,7 @@
 
 <ul class="breadcrumb">
     <li><a asp-controller="product" asp-action="Index"><localize>Home</localize></a> <span class="divider">/</span></li>
-    <li><a href="/@culture.Name/@_loc["categoryUrl"]/@Model.Category.Id">@Model.Category.Name</a> <span class="divider">/</span></li>
+    @*<li><a href="/@culture.Name/@_loc["categoryUrl"]/@Model.Category.Id">@Model.Category.Name</a> <span class="divider">/</span></li>*@
     @*<li class="active">@Model.Category.Name<span class="divider">/</span></li>*@
     <li class="active">@Model.Product.Name</li>
 </ul>

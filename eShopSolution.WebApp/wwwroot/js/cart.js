@@ -38,6 +38,7 @@
             },
             success: function (res) {
                 $('#lbl_number_of_items_header').text(res.length);
+                $('#lbl_number_of_items_body').text(res.length);
                 loadData();
             }
         });
@@ -76,7 +77,8 @@
                 });
                 $('#cart_body').html(html);
                 $('#none-cart').html(noneCart);
-                $('#lbl_number_of_items').text(res.length);
+                $('#lbl_number_of_items_header').text(res.length);
+                $('#lbl_number_of_items_body').text(res.length);
                 $('#lbl_total').text(numbarWithCommas(total));
             },
 
