@@ -146,19 +146,25 @@ namespace eShopSolution.Application.Catalog.Products
             // Step 1: Select join
             var query = from p in _context.Products         
                         
-                        join pt in _context.ProductTranslations on p.Id equals pt.ProductId
+            join pt in _context.ProductTranslations on p.Id equals pt.ProductId
 
-                        join pic in _context.ProductInCategories on p.Id equals pic.ProductId into ppic
-                        from pic in ppic.DefaultIfEmpty()
+            join pic in _context.ProductInCategories on p.Id equals pic.ProductId into ppic
+            from pic in ppic.DefaultIfEmpty()
 
-                        join c in _context.Categories on pic.CategoryId equals c.Id into picc
-                        from c in picc.DefaultIfEmpty()
+            join c in _context.Categories on pic.CategoryId equals c.Id into picc
+            from c in picc.DefaultIfEmpty()
 
-                        join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
-                        from pi in ppi.DefaultIfEmpty()
+            join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
+            from pi in ppi.DefaultIfEmpty()
 
-                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true && c.ParentId == 0
-                        select new { p, pt, pic, pi };
+            where pt.LanguageId == request.LanguageId && pi.IsDefault == true
+            select new { p, pt, pic, pi, c };
+
+            if(request.CategoryId <= 6 || request.CategoryId == null)
+            {
+                query = query.Where(p => p.c.ParentId == 0);
+            }
+            
             // Step 2: Filter
             if (!string.IsNullOrEmpty(request.KeyWord))
                 query = query.Where(x => x.pt.Name.Contains(request.KeyWord)
