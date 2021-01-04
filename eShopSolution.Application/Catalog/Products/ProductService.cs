@@ -157,7 +157,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join pi in _context.ProductImages on p.Id equals pi.ProductId into ppi
                         from pi in ppi.DefaultIfEmpty()
 
-                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true && c.ParentId == null
+                        where pt.LanguageId == request.LanguageId && pi.IsDefault == true && c.ParentId == 0
                         select new { p, pt, pic, pi };
             // Step 2: Filter
             if (!string.IsNullOrEmpty(request.KeyWord))
@@ -376,7 +376,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join pt in _context.ProductTranslations on p.Id equals pt.ProductId
                         join pic in _context.ProductInCategories on p.Id equals pic.ProductId
                         join c in _context.Categories on pic.CategoryId equals c.Id
-                        where pt.LanguageId == languageId
+                        where pt.LanguageId == languageId && c.ParentId == null
                         select new { p, pt, pic };
             // Step 2: Filter
             if (request.CategoryId.HasValue && request.CategoryId.Value > 0)
@@ -464,7 +464,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join c in _context.Categories on pic.CategoryId equals c.Id into picc
                         from c in picc.DefaultIfEmpty()
 
-                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == null
+                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == 0
                         && p.IsFeatured == true
                         select new { p, pt, pic, pi };
             
@@ -509,7 +509,7 @@ namespace eShopSolution.Application.Catalog.Products
                         join c in _context.Categories on pic.CategoryId equals c.Id into picc
                         from c in picc.DefaultIfEmpty()
 
-                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == null
+                        where pt.LanguageId == languageId && (pi == null || pi.IsDefault == true) && c.ParentId == 0
                         
                         select new { p, pt, pic, pi };
 
