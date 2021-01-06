@@ -85,9 +85,9 @@ namespace eShopSolution.Application.Catalog.Products
                 {
                     translations.Add(new ProductTranslation()
                     {
-                        Name = SystemConstants.ProductConstants.NA,
+                        Name = request.Name,
                         Description = SystemConstants.ProductConstants.NA,
-                        SeoAlias = SystemConstants.ProductConstants.NA,
+                        SeoAlias = request.SeoDescription,
                         LanguageId = language.Id
                     });
                 }    
@@ -160,7 +160,7 @@ namespace eShopSolution.Application.Catalog.Products
             where pt.LanguageId == request.LanguageId && pi.IsDefault == true
             select new { p, pt, pic, pi, c };
 
-            if(request.CategoryId <= 6 || request.CategoryId == null)
+            if(request.CategoryId <= 6 || request.CategoryId == null)//|| request.CategoryId == null
             {
                 query = query.Where(p => p.c.ParentId == 0);
             }

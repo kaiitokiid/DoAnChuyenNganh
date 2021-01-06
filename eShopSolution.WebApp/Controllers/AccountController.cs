@@ -47,7 +47,7 @@ namespace eShopSolution.WebApp.Controllers
         public async Task<IActionResult> Login(LoginRequest request)
         {
             if (!ModelState.IsValid)
-                return View(ModelState);
+                return View();
 
             var result = await _userApiClient.Authenticate(request);
             if (result.ResultObj == null)
@@ -131,6 +131,11 @@ namespace eShopSolution.WebApp.Controllers
             ClaimsPrincipal principal = new JwtSecurityTokenHandler().ValidateToken(jwtToken, validationParameters, out validatedToken);
 
             return principal;
+        }
+
+        public IActionResult ForgetPassword()
+        {
+            return View();
         }
     }
 }

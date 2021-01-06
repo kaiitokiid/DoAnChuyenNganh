@@ -1,4 +1,4 @@
-﻿
+﻿@model eShopSolution.ViewModels.System.Users.LoginRequest
 @{
     ViewData["Title"] = "Login";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -6,17 +6,16 @@
 }
 
 <ul class="breadcrumb">
-    <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-    <li class="active">Login</li>
+    <li><a href="index.html" localize-content>Home</a> <span class="divider">/</span></li>
+    <li class="active" localize-content>Login</li>
 </ul>
-<h3> Login</h3>
+<h3 localize-content>Login</h3>
 <hr class="soft" />
 
 <div class="row">
     <div class="span4">
         <div class="well">
-            <h5>CREATE YOUR ACCOUNT</h5><br />
-            Enter your e-mail address to create an account.<br /><br /><br />
+            <h5 localize-content>CREATE YOUR ACCOUNT</h5><br />
             
                 <a href="/@culture/Account/Register" style="padding-right:0">
                     <span class="btn btn-large btn-success"><localize>Register</localize></span>
@@ -27,23 +26,27 @@
     <div class="span1"> &nbsp;</div>
     <div class="span4">
         <div class="well">
-            <h5>ALREADY REGISTERED ?</h5>
+            <h5 localize-content>ALREADY REGISTERED ?</h5>
             <form action="/@culture/Account/Login" method="post">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="control-group">
-                    <label class="control-label" for="inputEmail1">Email</label>
+                    <label class="control-label" for="inputEmail1" localize-content>UserName</label>
                     <div class="controls">
-                        <input class="span3" type="text" name="UserName" placeholder="UserName">
+                        <input class="span3" type="text" asp-for="UserName" localize-att-placeholder="UserName"><br />
+                        <span asp-validation-for="UserName" class="text-danger" style="color: darkred"></span>
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="inputPassword1">Password</label>
+                    <label class="control-label" for="inputPassword1" localize-content>Password</label>
                     <div class="controls">
-                        <input type="password" class="span3" name="Password" placeholder="Password">
+                        <input type="password" class="span3" asp-for="PassWord" localize-att-placeholder="Password"><br />
+                        <span asp-validation-for="PassWord" class="text-danger" style="color: darkred"></span>
                     </div>
                 </div>
+                
                 <div class="control-group">
                     <div class="controls">
-                        <button type="submit" class="btn">Sign in</button> <a href="forgetpass.html">Forget password?</a>
+                        <button type="submit" class="btn" localize-content>Sign in</button> <a href="#" localize-content>Forget password?</a>
                     </div>
                 </div>
             </form>

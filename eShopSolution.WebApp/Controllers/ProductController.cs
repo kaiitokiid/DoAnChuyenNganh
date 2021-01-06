@@ -33,7 +33,7 @@ namespace eShopSolution.WebApp.Controllers
             });
         }
 
-        public async Task<IActionResult> Category(int id, string culture, string keyword, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 12)
+        public async Task<IActionResult> Category(int id, string culture, string keyword, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 3)
         {
             var products = await _productApiClient.GetProductPagings(new GetManageProductPagingRequest()
             {

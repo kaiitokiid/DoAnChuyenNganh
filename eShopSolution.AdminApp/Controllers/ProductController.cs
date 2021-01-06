@@ -28,7 +28,7 @@ namespace eShopSolution.AdminApp.Controllers
             _categoryApiClient = categoryApiClient;
         }
 
-        public async Task<IActionResult> Index(string keyword,int? categoryId, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 5)
+        public async Task<IActionResult> Index(string keyword,int? categoryId, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 10)
         {
             var languageId = HttpContext.Session.GetString(SystemConstants.AppSettings.DefaultLanguageId);
             var request = new GetManageProductPagingRequest()
@@ -49,7 +49,6 @@ namespace eShopSolution.AdminApp.Controllers
 
             var categories = await _categoryApiClient.GetAll(languageId);
 
-            //ViewBag.Category = 
             ViewBag.Categories = categories.Select(x => new SelectListItem()
             {
                 Text = x.Name,

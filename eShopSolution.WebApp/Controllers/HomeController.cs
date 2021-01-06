@@ -1,5 +1,6 @@
 ﻿using eShopSolution.ApiIntegration;
 using eShopSolution.Utilities.Constants;
+using eShopSolution.ViewModels.Catalog.Products;
 using eShopSolution.WebApp.Models;
 using LazZiya.ExpressLocalization;
 using Microsoft.AspNetCore.Authorization;
@@ -34,14 +35,33 @@ namespace eShopSolution.WebApp.Controllers
             _productApiClient = productApiClient;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? categoryId, string keyword, decimal? minPrice, decimal? maxPrice, int pageIndex = 1, int pageSize = 6)
         {
             var culture = CultureInfo.CurrentCulture.Name;
+            var products = await _productApiClient.GetProductPagings(new GetManageProductPagingRequest()
+            {
+                CategoryId = categoryId,
+                PageIndex = pageIndex,
+                LanguageId = culture,
+                PageSize = pageSize,
+                MinPrice = minPrice,
+                MaxPrice = maxPrice,
+                KeyWord = keyword,
+            });
+
+            ViewBag.Keyword = keyword;
+            ViewBag.MinPrice = minPrice;
+            ViewBag.MaxPrice = maxPrice;
+
             var viewModel = new HomeViewModel
             {
                 Slides = await _slideApiClient.GetAll(),
                 FeaturedProducts = await _productApiClient.GetFeaturedProducts(culture, SystemConstants.ProductSettings.NumberOfFeaturedProducts),
-                LastestProducts = await _productApiClient.GetLatestProducts(culture, SystemConstants.ProductSettings.NumberOfLastestProducts)
+                LastestProducts = await _productApiClient.GetLatestProducts(culture, SystemConstants.ProductSettings.NumberOfLastestProducts),
+                HomeProducts = new ProductCategoryViewModel()
+                {
+                    Products = products
+                }
             };
 
             return View(viewModel);

@@ -15,10 +15,12 @@ namespace eShopSolution.WebApp.Controllers
     public class CartController : Controller
     {
         private readonly IProductApiClient _productApiClient;
+        private readonly IOrderApiClient _orderApiClient;
 
-        public CartController(IProductApiClient productApiClient)
+        public CartController(IProductApiClient productApiClient, IOrderApiClient orderApiClient)
         {
             _productApiClient = productApiClient;
+            _orderApiClient = orderApiClient;
         }
         public IActionResult Index()
         {
@@ -32,7 +34,7 @@ namespace eShopSolution.WebApp.Controllers
         }
 
         [HttpPost]
-        public IActionResult Checkout(CheckoutViewModel request)
+        public async Task<IActionResult> Checkout(CheckoutViewModel request)
         {
             var model = GetCheckoutViewModel();
             var orderDetails = new List<OrderDetailViewModel>();
@@ -53,8 +55,24 @@ namespace eShopSolution.WebApp.Controllers
                 Email           = request.CheckoutModel.Email,
                 OrderDetails    = orderDetails
             };
-            // Add to API
-            TempData["SuccessMsg"] = "Order puschaseed successful";
+
+            
+
+            if (!ModelState.IsValid)
+            {
+                return View(request);
+            }
+
+            var result = await _orderApiClient.CreateOrder(checkoutRequest);
+            if (result)
+            {
+                TempData["result"] = "Đặt hàng thành công!";
+                return View(GetCheckoutViewModel());
+            }
+
+            TempData["result"] = "Đặt hàng thất bại";
+            //return View(request);
+
 
             return View(GetCheckoutViewModel());
         }

@@ -12,7 +12,7 @@
 }
 
 <ul class="breadcrumb">
-    <li><a href="/@culture/Home">Home</a> <span class="divider">/</span></li>
+    <li><a href="/@culture/Home" localize-content>Home</a> <span class="divider">/</span></li>
     <li class="active"> @Model.Category.Name</li>
 </ul>
 <h3> @Model.Category.Name <small class="pull-right"> @Model.Products.Items.Count <localize>products are available</localize> </small></h3>
@@ -22,18 +22,18 @@
         <div class="row">
             
             <div class="span4">
-                <input type="text" value="@ViewBag.Keyword" name="keyword" placeholder="Tên sản phẩm" class="form-control" />
+                <input type="text" value="@ViewBag.Keyword" name="keyword"      localize-att-placeholder="ProductName"     class="form-control" />
             </div>
             <div class="span4"></div>
             <div class="span4">
-                <input type="number" value="@ViewBag.MinPrice" name="minPrice" placeholder="Giá thấp nhất" class="form-control" />
+                <input type="number" value="@ViewBag.MinPrice" name="minPrice"  localize-att-placeholder="Lowest price"  class="form-control" />
             </div>
             <div class="span4">
-                <input type="number" value="@ViewBag.MaxPrice" name="maxPrice" placeholder="Giá cao nhất" class="form-control" />
+                <input type="number" value="@ViewBag.MaxPrice" name="maxPrice"  localize-att-placeholder="Highest price"class="form-control" />
             </div>
             <div class="span4">
-                <button type="submit" class="btn btn-primary">Tìm</button>
-                <button type="button" onclick="window.location.href = '/@culture.Name/@_loc["categoryUrl"]/@Model.Category.Id'" class="btn btn-dark">Reset</button>
+                <button type="submit" class="btn btn-primary"><localize>Search</localize></button>
+                <button type="button" onclick="window.location.href = '/@culture.Name/@_loc["categoryUrl"]/@Model.Category.Id'" class="btn btn-dark"><localize>Reset</localize></button>
             </div>
         </div>
     </form>
@@ -67,7 +67,7 @@
                 </div>
                 <div class="span3 alignR">
                     <form class="form-horizontal qtyFrm">
-                        <h3>@item.Price.ToString("C", culture)</h3>
+                        <h3>@item.Price.ToString("N0")</h3>
 
                         <a href="#" class="btn btn-large btn-primary btn-add-cart" data-id="@item.Id"><localize>Add to</localize>  <i class=" icon-shopping-cart"></i></a>
                         <a href="#" class="btn btn-large"><i class="icon-zoom-in"></i></a>
@@ -88,14 +88,13 @@
                     <div class="thumbnail">
                         <a href="/@culture.Name/@_loc["products"]/@item.Id"><img src="@(_conf["BaseAddress"]+ "/" + @item.ThumbnailImage) " alt="@item.Name " /></a>
                         <div class="caption">
-                            <h5>Manicure &amp; Pedicure</h5>
                             <p>
                                 @item.Description
                             </p>
                             <h4 style="text-align:center">
                                 <a class="btn" href="/@culture.Name/@_loc["products"]/@item.Id"> <i class="icon-zoom-in"></i></a> 
                                 <a class="btn btn-add-cart" href="#" data-id="@item.Id"><localize>Add to</localize> <i class="icon-shopping-cart"></i></a> 
-                                <a class="btn btn-primary" href="#">@item.Price.ToString("C", culture)</a>
+                                <a class="btn btn-primary" href="#">@item.Price.ToString("N0")</a>
                             </h4>
                         </div>
                     </div>

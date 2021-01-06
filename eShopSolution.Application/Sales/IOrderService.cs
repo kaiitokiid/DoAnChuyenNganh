@@ -6,10 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eShopSolution.ApiIntegration
+namespace eShopSolution.Application.Sales
 {
-    public interface IOrderApiClient
+    public interface IOrderService
     {
-        Task<bool> CreateOrder(CheckoutRequest request);
+        Task<int> CreateOrder(CheckoutRequest request);
+
+        Task<OrderViewModel> GetOrderById(int orderId);
     }
 }

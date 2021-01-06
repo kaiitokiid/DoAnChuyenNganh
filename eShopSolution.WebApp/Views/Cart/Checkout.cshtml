@@ -1,6 +1,6 @@
 ﻿@model CheckoutViewModel
 @{
-    ViewData["Title"] = "Checkout";
+    ViewData["Title"] = "Đặt hàng";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var culture = CultureInfo.CurrentCulture.Name;
 
@@ -8,26 +8,30 @@
 @inject Microsoft.Extensions.Configuration.IConfiguration _conf;
 <div class="span9">
     <ul class="breadcrumb">
-        <li><a href="index.html">Home</a> <span class="divider">/</span></li>
-        <li class="active"> SHOPPING CART</li>
+        <li><a href="index.html" localize-content>Home</a> <span class="divider">/</span></li>
+        <li class="active" localize-content>Purchase</li>
     </ul>
-    <h3>  SHOPPING CART [ <small>@Model.CartItems.Count Item(s) </small>]<a href="/" class="btn btn-large pull-right"><i class="icon-arrow-left"></i><localize>Continue Shopping</localize> </a></h3>
+    <h3>  <localize>SHOPPING CART</localize> ( <small>@Model.CartItems.Count <localize>Item(s)</localize> </small>)
+        @*<a href="/" class="btn btn-large pull-right">
+            i class="icon-arrow-left"></i><localize>Continue Shopping</localize> 
+        </a>*@
+    </h3>
     <hr class="soft" />
 
-    @if (TempData["SuccessMsg"] != null)
+    @if (TempData["result"] != null)
     {
-        <span class="alert alert-success">@TempData["SuccessMsg"]</span>
+        <span class="alert alert-success" style="transform: scale(2,2)">@TempData["result"]</span>
     }
     else
     {
         <table class="table table-bordered">
             <thead>
                 <tr>
-                    <th>Product</th>
-                    <th>Description</th>
-                    <th>Quantity</th>
-                    <th>Price</th>
-                    <th>Total</th>
+                    <th localize-content>Product</th>
+                    <th localize-content>ProductName</th>
+                    <th localize-content>Quantity</th>
+                    <th localize-content>Price</th>
+                    <th localize-content>Total</th>
                 </tr>
             </thead>
             <tbody>
@@ -35,17 +39,17 @@
                 {
                     <tr>
                         <td> <img width="60" src="@(_conf["BaseAddress"] + item.Image)" alt="@item.Name" /></td>
-                        <td>@item.Description</td>
+                        <td>@item.Name</td>
                         <td>
                             @item.Quantity
                         </td>
-                        <td>@item.Price</td>
-                        <td>@(item.Quantity * item.Price)</td>
+                        <td>@item.Price.ToString("N0")</td>
+                        <td>@((item.Quantity * item.Price).ToString("N0"))</td>
                     </tr>
 
                 }
                 <tr>
-                    <td colspan="4" style="text-align:right"><strong>TOTAL =</strong></td>
+                    <td colspan="4" style="text-align:right"><strong><localize>TOTAL =</localize> </strong></td>
                     <td class="label label-important" style="display:block"> <strong> @Model.CartItems.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
                 </tr>
 
@@ -53,32 +57,32 @@
         </table>
 
         <table class="table table-bordered">
-            <tr><th>ESTIMATE YOUR SHIPPING </th></tr>
+            <tr><th><localize>ESTIMATE YOUR SHIPPING</localize></th></tr>
             <tr>
                 <td>
                     <form class="form-horizontal" action="/@culture/Cart/Checkout" method="post">
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">Name </label>
+                            <label class="control-label" for="inputCountry" localize-content>Name</label>
                             <div class="controls">
-                                <input type="text" asp-for="CheckoutModel.Name" placeholder="Name">
+                                <input type="text" asp-for="CheckoutModel.Name" localize-att-placeholder="Name">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">Address </label>
+                            <label class="control-label" for="inputCountry" localize-content>Address</label>
                             <div class="controls">
-                                <input type="text" asp-for="CheckoutModel.Address" placeholder="Address">
+                                <input type="text" asp-for="CheckoutModel.Address" localize-att-placeholder="Address">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">PhoneNumber </label>
+                            <label class="control-label" for="inputCountry" localize-content>PhoneNumber</label>
                             <div class="controls">
-                                <input type="text" asp-for="CheckoutModel.PhoneNumber" placeholder="PhoneNumber">
+                                <input type="text" asp-for="CheckoutModel.PhoneNumber" localize-att-placeholder="PhoneNumber">
                             </div>
                         </div>
                         <div class="control-group">
-                            <label class="control-label" for="inputCountry">Email </label>
+                            <label class="control-label" for="inputCountry">Email</label>
                             <div class="controls">
-                                <input type="text" asp-for="CheckoutModel.Email" placeholder="Email">
+                                <input type="email" asp-for="CheckoutModel.Email" localize-att-placeholder="Email">
                             </div>
                         </div>
 
@@ -86,7 +90,7 @@
 
                         <div class="control-group">
                             <div class="controls">
-                                <button type="submit" class="btn">Purchase </button>
+                                <button type="submit" class="btn" localize-content>Purchase</button>
                             </div>
                         </div>
                     </form>

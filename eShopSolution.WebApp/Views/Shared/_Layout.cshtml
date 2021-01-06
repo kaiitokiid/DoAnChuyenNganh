@@ -22,6 +22,7 @@
     <link id="callCss" rel="stylesheet" href="/themes/bootshop/bootstrap.min.css" media="screen" />
     <link href="/themes/css/base.css" rel="stylesheet" media="screen" />
     <!-- Bootstrap style responsive -->
+    
     <link href="/themes/css/bootstrap-responsive.min.css" rel="stylesheet" />
     <link href="/themes/css/font-awesome.css" rel="stylesheet" type="text/css">
     <!-- Google-code-prettify -->
@@ -84,17 +85,19 @@
                 </a>
                 <div class="navbar-inner">
                     <a class="brand" href="/@culture/Home/"><img src="/themes/images/logo.png" alt="Bootsshop" /></a>
-                    <form class="form-inline navbar-search" method="post" action="products.html">
-                        <input id="srchFld" class="srchTxt" type="text" />
-                        <select class="srchTxt">
-                            <option>All</option>
-                            <option>CLOTHES </option>
-                            <option>FOOD AND BEVERAGES </option>
-                            <option>HEALTH & BEAUTY </option>
-                            <option>SPORTS & LEISURE </option>
-                            <option>BOOKS & ENTERTAINMENTS </option>
-                        </select>
-                        <button type="submit" id="submitButton" class="btn btn-primary">Go</button>
+                    <form class="form-inline navbar-search" asp-action="Index" method="get">
+
+                        @*<input type="text" value="@ViewBag.Keyword" name="keyword" localize-att-placeholder="ProductName" class="form-control"/>*@
+                        <input id="" style="width: 450px" class="srchTxt" type="text"  value="@ViewBag.Keyword" name="keyword" localize-att-placeholder="ProductName" />
+        @*<select class="srchTxt">
+            <option>All</option>
+            <option>CLOTHES </option>
+            <option>FOOD AND BEVERAGES </option>
+            <option>HEALTH & BEAUTY </option>
+            <option>SPORTS & LEISURE </option>
+            <option>BOOKS & ENTERTAINMENTS </option>
+        </select>
+        <button type="submit" id="submitButton" class="btn btn-primary">Go</button>*@
                     </form>
                     <ul id="topMenu" class="nav pull-right">
                         <li class=""><a asp-route-culture="@culture" localize-content>Specials Offer</a></li>

@@ -124,9 +124,18 @@
   <data name="Add to cart" xml:space="preserve">
     <value>Thêm vào giỏ hàng</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Địa chỉ</value>
+  </data>
+  <data name="ALREADY REGISTERED ?" xml:space="preserve">
+    <value>Bạn đã có tài khoản chưa?</value>
+  </data>
   <data name="categoryUrl" xml:space="preserve">
     <value>danh-muc</value>
     <comment>SideBar/Default</comment>
+  </data>
+  <data name="ConfirmPassWord" xml:space="preserve">
+    <value>Xác nhận mật khẩu</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Liên hệ</value>
@@ -135,26 +144,59 @@
   <data name="Continue Shopping" xml:space="preserve">
     <value>Tiếp tục mua sắm</value>
   </data>
+  <data name="CREATE YOUR ACCOUNT" xml:space="preserve">
+    <value>Tạo tài khoản</value>
+  </data>
+  <data name="Day of birth" xml:space="preserve">
+    <value>Ngày sinh</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Giao hàng</value>
     <comment>_layouts</comment>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Mô tả</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>Tiếng Anh</value>
     <comment>_layouts</comment>
   </data>
+  <data name="ESTIMATE YOUR SHIPPING" xml:space="preserve">
+    <value>Thông tin giao hàng</value>
+  </data>
   <data name="Featured Products" xml:space="preserve">
     <value>Sản phẩm nổi bật</value>
     <comment>/Home/Index</comment>
   </data>
+  <data name="Final" xml:space="preserve">
+    <value>Cuối</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>Đầu</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>Tên</value>
+  </data>
+  <data name="Forget password?" xml:space="preserve">
+    <value>Quên mật khẩu?</value>
+  </data>
+  <data name="Highest price" xml:space="preserve">
+    <value>Giá cao nhất</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Trang chủ</value>
+  </data>
+  <data name="Item(s)" xml:space="preserve">
+    <value>Sản phẩm</value>
   </data>
   <data name="Itemes in your cart" xml:space="preserve">
     <value>Sản phẩm trong giỏ hàng</value>
   </data>
   <data name="items in stock" xml:space="preserve">
     <value>sản phẩm trong kho</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>Họ</value>
   </data>
   <data name="Latest Products" xml:space="preserve">
     <value>Sản phẩm mới nhất</value>
@@ -167,12 +209,24 @@
   <data name="Logout" xml:space="preserve">
     <value>Đăng xuất</value>
   </data>
+  <data name="Lowest price" xml:space="preserve">
+    <value>Giá thấp nhất</value>
+  </data>
+  <data name="Mobile Phone" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
   <data name="More Details" xml:space="preserve">
     <value>Xem thêm chi tiết</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>Tên</value>
   </data>
   <data name="New | Available" xml:space="preserve">
     <value>Mới | Có sẵn</value>
     <comment>Common</comment>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Sau</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Đặt hàng</value>
@@ -181,8 +235,29 @@
     <value>Trang</value>
     <comment>Common</comment>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Mật khẩu</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>Số điện thoại</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Trước</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Giá</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Sản phẩm</value>
+  </data>
   <data name="Product Details" xml:space="preserve">
     <value>Chi tiết sản phẩm</value>
+  </data>
+  <data name="Product Information" xml:space="preserve">
+    <value>Thông tin sản phẩm</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Tên sản phẩm</value>
   </data>
   <data name="products" xml:space="preserve">
     <value>san-pham</value>
@@ -196,8 +271,35 @@
     <value>san-pham</value>
     <comment>/Home/Index</comment>
   </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Đặt hàng</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Số lượng</value>
+  </data>
+  <data name="Quantity/Update" xml:space="preserve">
+    <value>Số lượng/Cập nhật</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Đăng ký</value>
+  </data>
   <data name="Related Products" xml:space="preserve">
     <value>Sản phẩm liên quan</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Trở lại</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Tìm kiếm</value>
+  </data>
+  <data name="SHOPPING CART" xml:space="preserve">
+    <value>GIỎ HÀNG</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>Đăng nhập</value>
   </data>
   <data name="Sort By" xml:space="preserve">
     <value>Sắp xếp</value>
@@ -206,6 +308,15 @@
   <data name="Specials Offer" xml:space="preserve">
     <value>Khuyến mãi</value>
     <comment>_layouts</comment>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Tổng cộng</value>
+  </data>
+  <data name="TOTAL =" xml:space="preserve">
+    <value>Tổng giá =</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Tài khoản</value>
   </data>
   <data name="Vietnamese" xml:space="preserve">
     <value>Tiếng Việt</value>
@@ -221,5 +332,8 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Xin chào</value>
+  </data>
+  <data name="Your personal information" xml:space="preserve">
+    <value>Nhập thông tin của bạn</value>
   </data>
 </root>

@@ -123,8 +123,17 @@
   <data name="Add to cart" xml:space="preserve">
     <value>Add to cart</value>
   </data>
+  <data name="Address" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="ALREADY REGISTERED ?" xml:space="preserve">
+    <value>ALREADY REGISTERED ?</value>
+  </data>
   <data name="categoryUrl" xml:space="preserve">
     <value>categories</value>
+  </data>
+  <data name="ConfirmPassWord" xml:space="preserve">
+    <value>ConfirmPassWord</value>
   </data>
   <data name="Contact" xml:space="preserve">
     <value>Contact</value>
@@ -132,23 +141,56 @@
   <data name="Continue Shopping" xml:space="preserve">
     <value>Continue Shopping</value>
   </data>
+  <data name="CREATE YOUR ACCOUNT" xml:space="preserve">
+    <value>CREATE YOUR ACCOUNT</value>
+  </data>
+  <data name="Day of birth" xml:space="preserve">
+    <value>Day of birth</value>
+  </data>
   <data name="Delivery" xml:space="preserve">
     <value>Delivery</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>Description</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="ESTIMATE YOUR SHIPPING" xml:space="preserve">
+    <value>ESTIMATE YOUR SHIPPING</value>
+  </data>
   <data name="Featured Products" xml:space="preserve">
     <value>Featured Products</value>
   </data>
+  <data name="Final" xml:space="preserve">
+    <value>Final</value>
+  </data>
+  <data name="First" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="First Name" xml:space="preserve">
+    <value>First Name</value>
+  </data>
+  <data name="Forget password?" xml:space="preserve">
+    <value>Forget password?</value>
+  </data>
+  <data name="Highest price" xml:space="preserve">
+    <value>Highest price</value>
+  </data>
   <data name="Home" xml:space="preserve">
     <value>Home</value>
+  </data>
+  <data name="Item(s)" xml:space="preserve">
+    <value>Item(s)</value>
   </data>
   <data name="Itemes in your cart" xml:space="preserve">
     <value>Itemes in your cart</value>
   </data>
   <data name="items in stock" xml:space="preserve">
     <value>items in stock</value>
+  </data>
+  <data name="Last Name" xml:space="preserve">
+    <value>Last Name</value>
   </data>
   <data name="Latest Products" xml:space="preserve">
     <value>Latest Products</value>
@@ -159,11 +201,23 @@
   <data name="Logout" xml:space="preserve">
     <value>Logout</value>
   </data>
+  <data name="Lowest price" xml:space="preserve">
+    <value>Lowest price</value>
+  </data>
+  <data name="Mobile Phone" xml:space="preserve">
+    <value>Mobile Phone</value>
+  </data>
   <data name="More Details" xml:space="preserve">
     <value>More Details</value>
   </data>
+  <data name="Name" xml:space="preserve">
+    <value>Name</value>
+  </data>
   <data name="New | Available" xml:space="preserve">
     <value>New | Available</value>
+  </data>
+  <data name="Next" xml:space="preserve">
+    <value>Next</value>
   </data>
   <data name="Order" xml:space="preserve">
     <value>Order</value>
@@ -171,8 +225,29 @@
   <data name="Page" xml:space="preserve">
     <value>Page</value>
   </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="PhoneNumber" xml:space="preserve">
+    <value>PhoneNumber</value>
+  </data>
+  <data name="Previous" xml:space="preserve">
+    <value>Previous</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
   <data name="Product Details" xml:space="preserve">
     <value>Product Details</value>
+  </data>
+  <data name="Product Information" xml:space="preserve">
+    <value>Product Information</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>Product Name</value>
   </data>
   <data name="products" xml:space="preserve">
     <value>products</value>
@@ -183,14 +258,50 @@
   <data name="productUrl" xml:space="preserve">
     <value>products</value>
   </data>
+  <data name="Purchase" xml:space="preserve">
+    <value>Purchase</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="Quantity/Update" xml:space="preserve">
+    <value>Quantity/Update</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="Registration" xml:space="preserve">
+    <value>Registration</value>
+  </data>
   <data name="Related Products" xml:space="preserve">
     <value>Related Products</value>
+  </data>
+  <data name="Reset" xml:space="preserve">
+    <value>Reset</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>Search</value>
+  </data>
+  <data name="SHOPPING CART" xml:space="preserve">
+    <value>SHOPPING CART</value>
+  </data>
+  <data name="Sign in" xml:space="preserve">
+    <value>Sign in</value>
   </data>
   <data name="Sort By" xml:space="preserve">
     <value>Sort By</value>
   </data>
   <data name="Specials Offer" xml:space="preserve">
     <value>Specials Offer</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="TOTAL =" xml:space="preserve">
+    <value>TOTAL =</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>UserName</value>
   </data>
   <data name="Vietnamese" xml:space="preserve">
     <value>Vietnamese</value>
@@ -203,5 +314,8 @@
   </data>
   <data name="Welcome" xml:space="preserve">
     <value>Welcome</value>
+  </data>
+  <data name="Your personal information" xml:space="preserve">
+    <value>Your personal information</value>
   </data>
 </root>
