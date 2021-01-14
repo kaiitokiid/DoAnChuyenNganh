@@ -1,20 +1,30 @@
 ﻿@model eShopSolution.ViewModels.Catalog.Products.ProductViewModel
 
-@{
-    ViewData["Title"] = "Details";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+@{ ViewData["Title"] = "Details";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+@section Scripts{
+    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+    <script>ClassicEditor
+        .create(document.querySelector('#txt_Details'), {
+            // toolber: [ 'heading', '|', 'bold'', 'italic', 'link' ]
+        })
+        .then(editor => {
+            window.editor = editor;
+        })
+        .catch(err => {
+            console.error(err.stack);
+        });</script>
 }
-
 <div class="container-fluid">
-    <h1 class="mt-4">Chi tiết người dùng</h1>
+    <h1 class="mt-4">Chi tiết sản phẩm</h1>
     <ol class="breadcrumb mb-4">
         <li class="breadcrumb-item"><a href="/">Trang chủ</a></li>
-        <li class="breadcrumb-item active">Chi tiết người dùng</li>
+        <li class="breadcrumb-item active">Chi tiết sản phẩm</li>
     </ol>
 
     <div class="card mb-4">
         <div class="card-header">
-            <a class="btn btn-success" asp-action="Index" asp-controller="User">Về danh sách</a>
+            <a class="btn btn-success" asp-action="Index" asp-controller="Product">Về danh sách</a>
         </div>
         <div class="card-body">
             <div class="row">
@@ -71,11 +81,26 @@
                         </dd>
                         <dt class="col-sm-2">
                             @Html.DisplayNameFor(model => model.Details)
+                            @*<label asp-for="Details" class="control-label"></label>*@
                         </dt>
                         <dd class="col-sm-10">
-                            @Html.DisplayFor(model => model.Details)
+                            @Html.Raw(Model.Details)
                         </dd>
                     </dl>
+                    <div class="btn-group">
+                        <form asp-action="Edit" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Sửa" class="btn btn-success" />
+                        </form>
+                        <form asp-action="CategoryAssign" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Gán quyền" class="btn btn-primary" />
+                        </form>
+                        <form asp-action="Delete" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Xóa" class="btn btn-danger" />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

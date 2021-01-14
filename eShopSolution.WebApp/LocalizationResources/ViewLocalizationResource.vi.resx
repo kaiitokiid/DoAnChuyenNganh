@@ -180,6 +180,9 @@
   <data name="Forget password?" xml:space="preserve">
     <value>Quên mật khẩu?</value>
   </data>
+  <data name="FORGET YOUR PASSWORD?" xml:space="preserve">
+    <value>QUÊN MẬT KHẨU CỦA BẠN?</value>
+  </data>
   <data name="Highest price" xml:space="preserve">
     <value>Giá cao nhất</value>
   </data>
@@ -241,6 +244,9 @@
   <data name="PhoneNumber" xml:space="preserve">
     <value>Số điện thoại</value>
   </data>
+  <data name="Please enter the email address for your account. A verification code will be sent to you. Once you have received the verification code, you will be able to choose a new password for your account." xml:space="preserve">
+    <value>Vui lòng nhập địa chỉ email cho tài khoản của bạn. Một mã xác minh sẽ được gửi đến bạn. Sau khi nhận được mã xác minh, bạn sẽ có thể chọn mật khẩu mới cho tài khoản của mình.</value>
+  </data>
   <data name="Previous" xml:space="preserve">
     <value>Trước</value>
   </data>
@@ -292,6 +298,9 @@
   <data name="Reset" xml:space="preserve">
     <value>Trở lại</value>
   </data>
+  <data name="Reset your password" xml:space="preserve">
+    <value>Đặt lại mật khẩu của bạn</value>
+  </data>
   <data name="Search" xml:space="preserve">
     <value>Tìm kiếm</value>
   </data>
@@ -308,6 +317,9 @@
   <data name="Specials Offer" xml:space="preserve">
     <value>Khuyến mãi</value>
     <comment>_layouts</comment>
+  </data>
+  <data name="Submit" xml:space="preserve">
+    <value>Gửi</value>
   </data>
   <data name="Total" xml:space="preserve">
     <value>Tổng cộng</value>

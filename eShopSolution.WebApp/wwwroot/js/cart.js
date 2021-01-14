@@ -70,8 +70,8 @@
                          + "<button class=\"btn btn-plus\" data-id=\"" + item.productId + "\" type=\"button\"><i class=\"icon-plus\"></i></button >"
                          + "<button class=\"btn btn-danger btn-remove\" type=\"button\" data-id=\"" + item.productId + "\"><i class=\"icon-remove icon-white\"></i></button></div>"
                         + "</td>"
-                        + "<td>" + numbarWithCommas(item.price) + "</td>"
-                        + "<td>" + numbarWithCommas(amount) + "</td>"
+                        + "<td style=\"text-align: right\">" + numbarWithCommas(item.price) + "</td>"
+                         + "<td style=\"text-align: right\">" + numbarWithCommas(amount) + "</td>"
                         + "</tr>";
                     total += amount;
                 });

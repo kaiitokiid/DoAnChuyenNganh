@@ -1,4 +1,5 @@
-﻿@model eShopSolution.ViewModels.Catalog.Products.CategoryAssignRequest
+﻿@*@model eShopSolution.ViewModels.Catalog.Products.CategoryAssignRequest*@
+@model eShopSolution.AdminApp.Models.CategoryAssignViewModel
 
 @{
     ViewData["Title"] = "Gán danh mục";
@@ -18,20 +19,21 @@
         </div>
         <div class="card-body">
             <form asp-action="CategoryAssign">
+                <h4>Sản phẩm: @Model.ProductName</h4>
+                <hr class="soft" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                @for (var i = 0; i < Model.Categories.Count; i++)
+                <input type="hidden" asp-for="CategoryAssign.Id" />
+                @for (var i = 0; i < Model.CategoryAssign.Categories.Count; i++)
                 {
-                    <div class="form-group">
-                        <label>
+            <div class="form-group">
+                <label>
 
-                            <input type="checkbox" asp-for="Categories[i].Selected" />
-                            <input type="hidden" asp-for="Categories[i].Id" />
-                            <input type="hidden" asp-for="Categories[i].Name" />
-                            @Model.Categories[i].Name
-                        </label>
-                    </div>
-                }
+                    <input type="checkbox" asp-for="CategoryAssign.Categories[i].Selected" />
+                    <input type="hidden" asp-for="CategoryAssign.Categories[i].Id" />
+                    <input type="hidden" asp-for="CategoryAssign.Categories[i].Name" />
+                    @Model.CategoryAssign.Categories[i].Name
+                </label>
+            </div>}
                 <div class="form-group">
                     <input type="submit" value="Lưu lại" class="btn btn-primary" />
                 </div>

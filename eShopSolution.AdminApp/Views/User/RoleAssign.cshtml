@@ -1,4 +1,4 @@
-﻿@model eShopSolution.ViewModels.System.Users.RoleAssignRequest
+﻿@model eShopSolution.AdminApp.Models.RoleAssignViewModel
 
 @{
     ViewData["Title"] = "Gán quyền";
@@ -18,20 +18,22 @@
         </div>
         <div class="card-body">
             <form asp-action="RoleAssign">
+                <h4>Tài khoản: @Model.UserName</h4>
+                <hr class="soft" />
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                <input type="hidden" asp-for="Id" />
-                @for (var i = 0; i < Model.Roles.Count; i++)
+                <input type="hidden" asp-for="RoleAssign.Id" />
+                @for (var i = 0; i < Model.RoleAssign.Roles.Count; i++)
                 {
                     <div class="form-group">
                         <label>
 
-                            <input type="checkbox" asp-for="Roles[i].Selected" />
-                            <input type="hidden" asp-for="Roles[i].Id" />
-                            <input type="hidden" asp-for="Roles[i].Name" />
-                            @Model.Roles[i].Name
+                            <input type="checkbox" asp-for="RoleAssign.Roles[i].Selected" />
+                            <input type="hidden" asp-for="RoleAssign.Roles[i].Id" />
+                            <input type="hidden" asp-for="RoleAssign.Roles[i].Name" />
+                            @Model.RoleAssign.Roles[i].Name
                         </label>
                         
-                        <span asp-validation-for="Roles[i].Name" class="text-danger"></span>
+                        <span asp-validation-for="RoleAssign.Roles[i].Name" class="text-danger"></span>
                     </div>
                 }
                 <div class="form-group">

@@ -1,4 +1,5 @@
-﻿using eShopSolution.ApiIntegration;
+﻿using eShopSolution.AdminApp.Models;
+using eShopSolution.ApiIntegration;
 using eShopSolution.ViewModels.Common;
 using eShopSolution.ViewModels.System.Users;
 using Microsoft.AspNetCore.Authentication;
@@ -130,13 +131,25 @@ namespace eShopSolution.AdminApp.Controllers
         }
 
         [HttpGet]
-        public IActionResult Delete(Guid id)
+        public async Task<IActionResult> Delete(Guid id)
         {
 
-            return View(new UserDeleteRequest()
-            { 
-                Id = id
-            });
+            var result = await _userApiClient.GetUserById(id);
+            if (result.IsSuccessed)
+            {
+                var user = result.ResultObj;
+                var deleteRequest = new UserDeleteRequest()
+                {
+                    Id = id,
+                    UserName = user.UserName,
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Name = user.LastName + " " + user.FirstName,
+                    
+                };
+                return View(deleteRequest);
+            }
+            return RedirectToAction("Error", "Home");
         }
 
         [HttpPost]
@@ -159,9 +172,16 @@ namespace eShopSolution.AdminApp.Controllers
         [HttpGet]
         public async Task<IActionResult> RoleAssign(Guid id)
         {
+            var result = await _userApiClient.GetUserById(id);
             var roleAssignRequest = await GetRoleAssignRequest(id);
 
-            return View(roleAssignRequest);
+            var roleAssignViewModel = new RoleAssignViewModel()
+            {
+                UserName = result.ResultObj.UserName,
+                RoleAssign = roleAssignRequest
+            };
+
+            return View(roleAssignViewModel);
         }
 
         [HttpPost]

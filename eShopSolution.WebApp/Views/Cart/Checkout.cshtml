@@ -43,14 +43,14 @@
                         <td>
                             @item.Quantity
                         </td>
-                        <td>@item.Price.ToString("N0")</td>
-                        <td>@((item.Quantity * item.Price).ToString("N0"))</td>
+                        <td style="text-align: right">@item.Price.ToString("N0")</td>
+                        <td style="text-align: right">@((item.Quantity * item.Price).ToString("N0"))</td>
                     </tr>
 
                 }
                 <tr>
-                    <td colspan="4" style="text-align:right"><strong><localize>TOTAL =</localize> </strong></td>
-                    <td class="label label-important" style="display:block"> <strong> @Model.CartItems.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
+                    <td colspan="4" style="text-align: right"><strong><localize>TOTAL =</localize> </strong></td>
+                    <td class="label label-important" style="display:block; text-align: right"> <strong> @Model.CartItems.Sum(x => x.Quantity * x.Price).ToString("N0") </strong></td>
                 </tr>
 
             </tbody>

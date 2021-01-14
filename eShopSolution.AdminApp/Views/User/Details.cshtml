@@ -57,6 +57,20 @@
                             @Html.DisplayFor(model => model.Dob)
                         </dd>
                     </dl>
+                    <div class="btn-group">
+                        <form asp-action="Edit" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Sửa" class="btn btn-success" />
+                        </form>
+                        <form asp-action="RoleAssign" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Gán quyền" class="btn btn-primary" />
+                        </form>
+                        <form asp-action="Delete" method="get">
+                            <input asp-for="Id" type="hidden" />
+                            <input type="submit" value="Xóa" class="btn btn-danger" />
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>

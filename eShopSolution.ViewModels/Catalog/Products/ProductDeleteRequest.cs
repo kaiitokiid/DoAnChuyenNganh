@@ -15,6 +15,6 @@ namespace eShopSolution.ViewModels.Catalog.Products
         [Display(Name="Tên sản phẩm")]
         public string Name { get; set; }
 
-        public int MyProperty { get; set; }
+        public string MyProperty { get; set; }
     }
 }

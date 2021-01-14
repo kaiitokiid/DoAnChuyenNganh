@@ -1,4 +1,5 @@
-﻿using eShopSolution.ApiIntegration;
+﻿using eShopSolution.AdminApp.Models;
+using eShopSolution.ApiIntegration;
 using eShopSolution.Utilities.Constants;
 using eShopSolution.ViewModels.Catalog.Products;
 using eShopSolution.ViewModels.Common;
@@ -89,9 +90,18 @@ namespace eShopSolution.AdminApp.Controllers
         [HttpGet]
         public async Task<IActionResult> CategoryAssign(int id)
         {
+            var languageId = HttpContext.Session.GetString(SystemConstants.AppSettings.DefaultLanguageId);
+
+            var product = await _productApiClient.GetById(id, languageId);
             var categoryAssignRequest = await GetCategoryAssignRequest(id);
 
-            return View(categoryAssignRequest);
+            var categoryViewModel = new CategoryAssignViewModel()
+            {
+                ProductName = product.Name,
+                CategoryAssign = categoryAssignRequest
+            };
+
+            return View(categoryViewModel);
         }
 
         [HttpPost]
@@ -189,8 +199,7 @@ namespace eShopSolution.AdminApp.Controllers
             return View(new ProductDeleteRequest()
             {
                 Id = Id,
-                Name = product.Name
-                
+                Name = product.Name  
             });
         }
 
